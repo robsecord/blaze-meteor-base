@@ -1,0 +1,57 @@
+<template name="manager_body">
+
+    <div class="component-wrapper root-component manager-body-component">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img alt="Brand" src="/img/logo_36x36.png"></a>
+                    <p class="navbar-text">Blaze-Meteor-Base</p>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="javascript:void(0)" id="profileDropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rob Secord <span class="caret" aria-hidden="true"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                                <li><a href="{{pathFor 'user.profile'}}">Profile</a></li>
+                                <li><a href="{{pathFor 'user.settings'}}">Settings</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#" data-action="logout">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidemenu-primary">
+
+                    <!-- <sidemenu></sidemenu> -->
+                    <div>Side Menu Here..</div>
+
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 content-primary">
+
+                    {{#momentum plugin="none"}}
+                        {{#if Template.subscriptionsReady}}
+                            {{> Template.dynamic template=main}}
+                        {{else}}
+                            {{> app_loading}}
+                        {{/if}}
+                    {{/momentum}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="component-wrapper overlay-component primary-overlay"></div>
+
+</template>

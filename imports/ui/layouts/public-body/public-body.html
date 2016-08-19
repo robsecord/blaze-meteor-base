@@ -1,0 +1,26 @@
+<template name="public_body">
+
+    <div class="component-wrapper root-component public-body-component">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><img alt="Brand" src="/img/logo_36x36.png"></a>
+                    <p class="navbar-text">Blaze-Meteor-Base</p>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            {{#momentum plugin="none"}}
+                {{#if Template.subscriptionsReady}}
+                    {{> Template.dynamic template=main}}
+                {{else}}
+                    {{> app_loading}}
+                {{/if}}
+            {{/momentum}}
+
+        </div>
+    </div>
+
+</template>

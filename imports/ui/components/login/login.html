@@ -1,0 +1,24 @@
+<template name="login">
+    <div class="component-wrapper login-component">
+        <form id="loginForm" class="form-horizontal" method="POST">
+            {{#if hasLoginError}}
+                <div class="alert alert-danger" role="alert">
+                    {{ asFriendlyErrorMsg loginError }}
+                </div>
+            {{/if}}
+
+            <div class="form-group">
+                <label for="email" class="sr-only">Email</label>
+                <input id="email" class="form-control" type="text" name="email" placeholder="Email address" />
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="sr-only">Password</label>
+                <input id="password" class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign In</button>
+            <a href="{{pathFor 'app.forgot'}}" class="btn btn-sm btn-link btn-forgot pull-right">Forgot password?</a>
+        </form>
+    </div>
+</template>

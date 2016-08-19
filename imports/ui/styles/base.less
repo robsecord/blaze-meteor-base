@@ -1,0 +1,42 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "./lib/mixins.less";
+
+
+// Primary Styles
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+html, body,
+#__blaze-root,
+[data-momentum] {
+  height: 100%;
+}
+
+
+// Component Wrapper
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  position: relative;
+  height: 100%;
+  //outline: 3px dotted red;
+
+  &.root-component {
+
+    // Page Containers
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    > .container-fluid {
+      &, > .row {
+        height: 100%;
+        padding: 0;
+      }
+    }
+    .sidemenu-primary,
+    .content-primary {
+      height: 100%;
+    }
+
+  }
+}
+//.component-state-transition-wrapper {
+//  position: relative;
+//  height: 100%;
+//}

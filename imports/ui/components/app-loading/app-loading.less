@@ -1,0 +1,29 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "/imports/ui/styles/lib/mixins.less";
+
+
+// Stand-Alone Loading Icon
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.app-loading-icon {
+  position: relative;
+  .square(24px);
+  border-radius: 50%;
+  background: @white;
+  animation: spinner 1s ease-out infinite;
+  i { display: none; }
+}
+
+
+// App-Loading Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.app-loading-component {
+
+    .app-loading-icon {
+      .pos-abs(50%, 50%);
+      transform: translate3d(50%, -50%, 0);
+    }
+
+  }
+}

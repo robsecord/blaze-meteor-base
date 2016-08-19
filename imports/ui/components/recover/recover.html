@@ -1,0 +1,19 @@
+<template name="recover">
+    <div class="component-wrapper recover-component">
+        <form id="recoverForm" class="form-horizontal" method="POST">
+            {{#if hasEmailError}}
+                <div class="alert alert-danger" role="alert">
+                    {{ asFriendlyErrorMsg emailError }}
+                </div>
+            {{/if}}
+
+            <div class="form-group">
+                <label for="email" class="sr-only">Email</label>
+                <input id="email" class="form-control" type="text" name="email" placeholder="Email address" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Recover</button>
+            <a href="{{pathFor 'app.welcome'}}" class="btn btn-sm btn-link btn-cancel">cancel</a>
+        </form>
+    </div>
+</template>

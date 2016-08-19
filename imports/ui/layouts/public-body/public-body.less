@@ -1,0 +1,50 @@
+// Reference Variables & Mixins
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@import (reference) "/imports/ui/styles/lib/mixins.less";
+
+
+// Public Body Component
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.component-wrapper {
+  &.root-component.public-body-component {
+
+    // Top Navigation
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .navbar.navbar-default {
+      background: transparent;
+      background-image: none;
+      border-color: fade(white, 30%);
+
+      &.navbar-fixed-top {
+        margin-bottom: 0;
+      }
+
+      .navbar-brand {
+        img {
+          .square(20px);
+        }
+      }
+
+      .navbar-text {
+        color: @whitesmoke;
+      }
+    }
+
+    // Primary Content
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    .content-primary {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      .page-header {
+        margin-top: 0;
+      }
+      .sub-header {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+  }
+}
