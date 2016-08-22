@@ -3,17 +3,17 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 // App Components
-import '../../ui/components/root-redirect/root-redirect';
+import '../../ui/components/root-redirect/client/root-redirect';
 
 // Primary Page Layouts
-import '../../ui/layouts/public-body/public-body';
-import '../../ui/layouts/manager-body/manager-body';
+import '../../ui/layouts/public-body/client/public-body';
+import '../../ui/layouts/manager-body/client/manager-body';
 
 // Route Pages
-import '../../ui/pages/404/notfound';
-import '../../ui/pages/welcome/welcome';
-import '../../ui/pages/forgot/forgot';
-import '../../ui/pages/dashboard/dashboard';
+import '../../ui/pages/404/client/notfound';
+import '../../ui/pages/welcome/client/welcome';
+import '../../ui/pages/forgot/client/forgot';
+import '../../ui/pages/dashboard/client/dashboard';
 
 
 // Route Group for Managers

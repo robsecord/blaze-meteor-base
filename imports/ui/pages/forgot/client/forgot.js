@@ -3,7 +3,7 @@
 //import { Template } from 'meteor/templating';
 
 // Included Templates
-import '/imports/ui/components/recover/recover';
+import '/imports/ui/components/recover/client/recover';
 
 // Component Template
 import './forgot.html';

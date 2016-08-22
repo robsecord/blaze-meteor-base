@@ -9,8 +9,6 @@
     "node": true,
     "meteor": true,
     "es6": true,
-    "mocha": true,
-    "phantomjs": true,
     "jquery": true,
     "mongo": true
   },
@@ -26,7 +24,6 @@
     "import/core-modules": [ "meteor/meteor" ]
   },
   "rules": {
-    "no-underscore-dangle": "off",
     "meteor/eventmap-params": [
       "error",
       {
@@ -37,32 +34,102 @@
     "meteor/template-names": [
       "off"
     ],
+    "no-underscore-dangle": "off",
+    "indent": [
+      "error",
+      4
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single",
+      { "avoidEscape": true }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-else-return": [
+      "error"
+    ],
+    "no-eval": [
+      "error"
+    ],
+    "no-useless-concat": [
+      "error"
+    ],
+    "no-useless-escape": [
+      "error"
+    ],
+    "max-lines": [
+      "error",
+      {"max": 1500, "skipBlankLines": true, "skipComments": true}
+    ],
+    "max-nested-callbacks": [
+      "error",
+      5
+    ],
+    "max-params": [
+      "error",
+      5
+    ],
+    "max-statements-per-line": [
+      "error",
+      {"max": 3}
+    ],
+    "max-statements": [ // per function
+      "error",
+      500
+    ],
+    "no-nested-ternary": [
+      "error"
+    ],
+    "no-trailing-spaces": [
+      "error"
+    ],
+    "no-unneeded-ternary": [
+      "error"
+    ],
+    "no-array-constructor": [
+      "error"
+    ],
+    "no-loop-func": [
+      "error"
+    ],
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "eol-last": [
+      "error"
+    ],
+    "space-before-blocks": [
+      "error"
+    ],
+    "no-whitespace-before-property": [
+      "error"
+    ],
     "no-extra-parens": [1,"all"],
     "accessor-pairs": [1,{"getWithoutSet":true,"setWithoutGet":true}],
     "default-case": 1,
     "eqeqeq": [2,"smart"],
-    "no-else-return": 1,
     "no-eq-null": 1,
-    "no-eval": 2,
     "no-floating-decimal": 1,
     "no-implied-eval": 2,
-    "no-loop-func": 2,
     "no-self-compare": 1,
     "no-shadow-restricted-names": 1,
     "no-shadow": [1,{"hoist":"never"}],
     "no-use-before-define": [1,"nofunc"],
     "camelcase": [1,{"properties":"always"}],
     "comma-spacing": [1,{"before":false,"after":true}],
-    "eol-last": 2,
     "func-names": 1,
-    "indent": [1,4],
-    "key-spacing": [1,{"align":"colon","afterColon":true}],
-    "linebreak-style": [1,"unix"],
-    "no-trailing-spaces": [1,{"skipBlankLines":false}],
+    "key-spacing": [1,{"beforeColon":false,"afterColon":true}],
     "max-len": [1,100,4,{"ignoreComments":true,"ignoreUrls":true}],
     "comma-dangle": ["error", "never"],
     "object-curly-spacing": 0,
-    "one-var": 0,
     "one-var-declaration-per-line": 0,
     "no-var": 0,
     "no-lonely-if": 0,

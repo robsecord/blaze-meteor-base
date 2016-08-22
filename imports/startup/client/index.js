@@ -4,7 +4,7 @@ import { Session } from 'meteor/session';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 // Common App Display Pipes
-import '/imports/ui/pipes/common.js';
+import '/imports/ui/pipes/client/common.js';
 
 // App Routes
 import './routes';

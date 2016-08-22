@@ -1,3 +1,4 @@
+/* eslint-disable one-var */
 /**
  * Client-side Assets to be loaded from a CDN
  *   Public CDN Stats:

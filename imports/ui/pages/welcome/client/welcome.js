@@ -2,7 +2,7 @@
 //import { Meteor } from 'meteor/meteor';
 //import { Template } from 'meteor/templating';
 
-import '/imports/ui/components/login/login';
+import '/imports/ui/components/login/client/login';
 
 // Template Component
 import './welcome.html';

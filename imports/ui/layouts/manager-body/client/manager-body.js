@@ -8,10 +8,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 //import { ActiveRoute } from 'meteor/zimme:active-route';
 
 // App Components
-import { AuthService } from '/imports/auth/client/auth-service.js';
+import { AuthService } from '/imports/auth/client/auth-service';
 
 // Global Constants
-import { CONNECTION_ISSUE_TIMEOUT } from '../../../utils/global-constants.js';
+import { CONNECTION_ISSUE_TIMEOUT } from '../../../../utils/global-constants.js';
 
 // Template Component
 import './manager-body.html';

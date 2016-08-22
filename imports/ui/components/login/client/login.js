@@ -3,11 +3,11 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-// App Components
-import { AuthService } from '/imports/auth/client/auth-service';
-
 // Common NPM Imports for App
 import * as _ from 'lodash';
+
+// App Components
+import { AuthService } from '/imports/auth/client/auth-service';
 
 // Template Component
 import './login.html';
@@ -59,6 +59,8 @@ Template.login.events({
 
     /**
      *
+     * @param event
+     * @param instance
      */
     'submit #loginForm': function loginSubmitForm(event, instance) {
         var email = event.target.email.value;

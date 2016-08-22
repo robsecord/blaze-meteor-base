@@ -4,7 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Template } from 'meteor/templating';
 
 // App Components
-import { AuthService } from '../../../auth/client/auth-service.js';
+import { AuthService } from '/imports/auth/client/auth-service';
 
 // Template Component
 import './recover.html';
