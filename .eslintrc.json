@@ -1,0 +1,76 @@
+{
+  "parser": "babel-eslint",
+  "ecmaVersion": 6,
+  "parserOptions": {
+    "allowImportExportEverywhere": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "meteor": true,
+    "es6": true,
+    "mocha": true,
+    "phantomjs": true,
+    "jquery": true,
+    "mongo": true
+  },
+  "plugins": [
+    "meteor"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:meteor/recommended"
+  ],
+  "settings": {
+    "import/resolver": "meteor",
+    "import/core-modules": [ "meteor/meteor" ]
+  },
+  "rules": {
+    "no-underscore-dangle": "off",
+    "meteor/eventmap-params": [
+      "error",
+      {
+        "eventParamName": "event",
+        "templateInstanceParamName": "instance"
+      }
+    ],
+    "meteor/template-names": [
+      "off"
+    ],
+    "no-extra-parens": [1,"all"],
+    "accessor-pairs": [1,{"getWithoutSet":true,"setWithoutGet":true}],
+    "default-case": 1,
+    "eqeqeq": [2,"smart"],
+    "no-else-return": 1,
+    "no-eq-null": 1,
+    "no-eval": 2,
+    "no-floating-decimal": 1,
+    "no-implied-eval": 2,
+    "no-loop-func": 2,
+    "no-self-compare": 1,
+    "no-shadow-restricted-names": 1,
+    "no-shadow": [1,{"hoist":"never"}],
+    "no-use-before-define": [1,"nofunc"],
+    "camelcase": [1,{"properties":"always"}],
+    "comma-spacing": [1,{"before":false,"after":true}],
+    "eol-last": 2,
+    "func-names": 1,
+    "indent": [1,4],
+    "key-spacing": [1,{"align":"colon","afterColon":true}],
+    "linebreak-style": [1,"unix"],
+    "no-trailing-spaces": [1,{"skipBlankLines":false}],
+    "max-len": [1,100,4,{"ignoreComments":true,"ignoreUrls":true}],
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": 0,
+    "one-var": 0,
+    "one-var-declaration-per-line": 0,
+    "no-var": 0,
+    "no-lonely-if": 0,
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "meteor/no-session": [0],
+    "consistent-return": 0,
+    "spaced-comment": 0,
+    "vars-on-top": 0
+  }
+}
