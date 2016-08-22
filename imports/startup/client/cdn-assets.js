@@ -15,7 +15,7 @@
  * @type {{js: string[], css: *[]}}
  */
 var assets = {
-    js : [
+    js: [
         // Twitter Bootstrap
         'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js',
 
@@ -23,25 +23,25 @@ var assets = {
         'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js'
     ],
 
-    css : [
+    css: [
         // Twitter Bootstrap
-        {url: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', 'insert': 'before'},
+        {url: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', insert: 'before'},
 
         // Date/Time Picker for Bootstrap
-        {url: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css', 'insert': 'before'},
+        {url: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css', insert: 'before'},
 
         // Font-Awesome
-        {url: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', 'insert': 'after'},
+        {url: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', insert: 'after'},
 
         // Montserrat - Google Web Font
-        {url: 'https://fonts.googleapis.com/css?family=Montserrat:400,700', 'insert': 'after'}
+        {url: 'https://fonts.googleapis.com/css?family=Montserrat:400,700', insert: 'after'}
     ]
 };
 
 /**
  * Load all Client-side Assets when the DOM is Ready
  */
-Meteor.startup(function CDN_Assets_startup() {
+Meteor.startup(() => {
     var i, n, asset;
     var head = document.getElementsByTagName('head')[0];
     var body = document.getElementsByTagName('body')[0];

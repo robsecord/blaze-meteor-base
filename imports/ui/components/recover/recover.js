@@ -1,11 +1,10 @@
 // Meteor Components
-import { Meteor } from 'meteor/meteor';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Template } from 'meteor/templating';
 
 // App Components
-import { AuthService } from '../../../auth/client/auth.service';
+import { AuthService } from '../../../auth/client/auth-service.js';
 
 // Template Component
 import './recover.html';
@@ -18,7 +17,7 @@ import './recover.html';
  *
  * @param {Function} callback The function to run when the Template has been created
  */
-Template.recover.onCreated(function recover_onCreated() {
+Template.recover.onCreated(function recoverOnCreated() {
     this.authService = AuthService.instance();
     this.emailError = new ReactiveVar('');
 });
@@ -42,7 +41,7 @@ Template.recover.helpers({
      * Checks if there is any Email Recovery Error Messages
      */
     hasEmailError() {
-        return (Template.instance().emailError.get().length > 0);
+        return Template.instance().emailError.get().length > 0;
     }
 
 });
@@ -58,7 +57,7 @@ Template.recover.events({
     /**
      *
      */
-    'submit #recoverForm'(event, instance) {
+    'submit #recoverForm': function recoverOnSubmit(event, instance) {
         event.preventDefault();
         var email = event.target.email.value;
 

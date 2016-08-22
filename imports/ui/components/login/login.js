@@ -1,8 +1,13 @@
-// Common Meteor Imports
-import '/imports/utils/meteor_imports';
+// Common Meteor Imports for App
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 // App Components
-import { AuthService } from '/imports/auth/client/auth.service';
+import { AuthService } from '/imports/auth/client/auth-service';
+
+// Common NPM Imports for App
+import * as _ from 'lodash';
 
 // Template Component
 import './login.html';
@@ -15,7 +20,7 @@ import './login.html';
  *
  * @param {Function} callback The function to run when the Template has been created
  */
-Template.login.onCreated(function login_onCreated() {
+Template.login.onCreated(function loginOnCreated() {
     this.authService = AuthService.instance();
     this.loginError = new ReactiveVar({});
 });
@@ -39,7 +44,7 @@ Template.login.helpers({
      * Checks if there is any Login Error Messages
      */
     hasLoginError() {
-        return (!_.isUndefined(Template.instance().loginError.get().error));
+        return !_.isUndefined(Template.instance().loginError.get().error);
     }
 
 });
@@ -55,10 +60,10 @@ Template.login.events({
     /**
      *
      */
-    'submit #loginForm'(event, instance) {
-        event.preventDefault();
+    'submit #loginForm': function loginSubmitForm(event, instance) {
         var email = event.target.email.value;
         var password = event.target.password.value;
+        event.preventDefault();
 
         // Clear any previous error message
         instance.loginError.set({});

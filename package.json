@@ -29,35 +29,6 @@
     "eslint-plugin-meteor": "4.0.0",
     "eslint-plugin-react": "6.1.1"
   },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "allowImportExportEverywhere": true
-    },
-    "plugins": [
-      "meteor"
-    ],
-    "extends": [
-      "airbnb",
-      "plugin:meteor/recommended"
-    ],
-    "settings": {
-      "import/resolver": "meteor"
-    },
-    "rules": {
-      "no-underscore-dangle": "off",
-      "meteor/eventmap-params": [
-        "error",
-        {
-          "eventParamName": "event",
-          "templateInstanceParamName": "instance"
-        }
-      ],
-      "meteor/template-names": [
-        "off"
-      ]
-    }
-  },
   "postcss": {
     "plugins": {
       "autoprefixer": {

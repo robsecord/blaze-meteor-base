@@ -1,5 +1,5 @@
-// Common Meteor Imports
-import '/imports/utils/meteor_imports';
+// Meteor Components
+import { Meteor } from 'meteor/meteor';
 
 Meteor.startup(() => {
     // code to run on server at startup

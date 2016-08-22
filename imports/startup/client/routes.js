@@ -17,11 +17,11 @@ import '../../ui/pages/dashboard/dashboard';
 
 
 // Route Group for Managers
-var manager = FlowRouter.group({
+const manager = FlowRouter.group({
     triggersEnter: [
         () => {
             if (!(Meteor.loggingIn() || Meteor.userId())) {
-                let route = FlowRouter.current();
+                const route = FlowRouter.current();
                 if (route.route.name !== 'app.home') {
                     Session.set('redirectAfterLogin', route.path);
                 }
@@ -32,20 +32,19 @@ var manager = FlowRouter.group({
 });
 
 // Route Group for Admins Only
-var admin = manager.group({
-    prefix: '/admin',
-    triggersEnter: [
-        //() => {
-        //    if (! isInstantAdmin() ) {
-        //        return FlowRouter.go('app.dashboard');
-        //    }
-        //}
-    ]
-});
+//const admin = manager.group({
+//    prefix: '/admin',
+//    triggersEnter: [
+//        //() => {
+//        //    if (! isInstantAdmin() ) {
+//        //        return FlowRouter.go('app.dashboard');
+//        //    }
+//        //}
+//    ]
+//});
 
 // Route Group for all Others (unauthenticated users)
-var other = FlowRouter.group({});
-
+const other = FlowRouter.group({});
 
 
 //
@@ -124,5 +123,3 @@ manager.route('/dashboard', {
 // "Admin" Group Routes
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-
-

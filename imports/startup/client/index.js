@@ -1,29 +1,31 @@
-// Common Meteor Imports
-import '/imports/utils/meteor_imports';
+// Common Meteor Imports for App
+import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
+// Common App Display Pipes
+import '/imports/ui/pipes/common.js';
 
 // App Routes
 import './routes';
 
 // CDN Assets
-import './cdn_assets';
-
-// Common App Display Pipes
-import '/imports/ui/pipes/common.js';
+import './cdn-assets';
 
 
 // Get Current-User details before initializing Flow Router.
-//FlowRouter.wait();
-//Tracker.autorun(function() {
-//    if (Roles.subscription.ready() && !FlowRouter._initialized) {
-//        return FlowRouter.initialize();
-//    }
-//});
+// FlowRouter.wait();
+// Tracker.autorun(function() {
+//     if (Roles.subscription.ready() && !FlowRouter._initialized) {
+//         return FlowRouter.initialize();
+//     }
+// });
 
 /**
  *
  * @param fromStartup
  */
-var resetSession = function (fromStartup) {
+var resetSession = function startupResetSession(fromStartup) {
     var _set = fromStartup ? 'setDefault' : 'set';
 
     Session[_set]('loggedIn', false);
@@ -44,7 +46,7 @@ Meteor.startup(() => {
 Tracker.autorun(() => {
     if (!Meteor.userId()) {
         if (Session.get('loggedIn')) {
-            let route = FlowRouter.current();
+            const route = FlowRouter.current();
             if (route.route.name !== 'app.home') {
                 Session.set('redirectAfterLogin', route.path);
             }

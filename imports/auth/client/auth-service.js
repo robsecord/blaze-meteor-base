@@ -1,12 +1,8 @@
 // Meteor Components
 import { Meteor } from 'meteor/meteor';
-import * as _ from 'lodash';
 
 // App Components
 import { denodeify } from '/imports/utils/denodeify';
-
-// Global Constants
-import { SECURITY_LOGOUT_OTHER_CLIENTS_ON_LOGIN } from '/imports/utils/global.constants';
 
 // Convert Node-Style functions with callbacks to return Promises instead
 const _loginWithPassword = denodeify(Meteor.loginWithPassword);
@@ -52,9 +48,7 @@ export class AuthService {
      */
     login(email, password) {
         return _loginWithPassword(email, password)
-            .then(() => {
-                return _logoutOtherClients();
-            });
+            .then(() => _logoutOtherClients());
     }
 
     /**
@@ -74,7 +68,7 @@ export class AuthService {
      *                          will reject if the email is not found.
      */
     recover(email) {
-        return _forgotPassword({email: email});
+        return _forgotPassword({ email });
     }
 
     /**
@@ -104,3 +98,6 @@ export class AuthService {
 
 // Static Instance Member for Singleton Pattern
 AuthService._instance = null;
+
+// Default Export
+export default AuthService;

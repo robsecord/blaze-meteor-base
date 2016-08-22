@@ -1,5 +1,4 @@
 // Meteor Components
-import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import * as _ from 'lodash';
 
@@ -26,7 +25,7 @@ export const FormatPipes = {
         err = err.replace(/^\[[\d]+]\s?|\s?\[[\d]+]$/g, '');
 
         // Prevent exposing specific auth errors
-        let defaultAuthError = 'Invalid credentials';
+        const defaultAuthError = 'Invalid credentials';
         err = /user not found/i.test(err) ? defaultAuthError : err;
         err = /incorrect password/i.test(err) ? defaultAuthError : err;
 
@@ -35,6 +34,8 @@ export const FormatPipes = {
     }
 
 };
+export default FormatPipes;
+
 
 //
 // Template Formatting Pipes
@@ -44,6 +45,6 @@ export const FormatPipes = {
  *
  * @param {string|*} errorValue
  */
-Template.registerHelper('asFriendlyErrorMsg', function TemplatePipes_Common_asFriendlyErrorMsg(errorValue) {
-    return FormatPipes.asFriendlyErrorMsg(errorValue);
-});
+Template.registerHelper('asFriendlyErrorMsg', (errorValue) =>
+    FormatPipes.asFriendlyErrorMsg(errorValue)
+);
