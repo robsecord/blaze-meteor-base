@@ -58,8 +58,8 @@ Template.recover.events({
      *
      */
     'submit #recoverForm': function recoverOnSubmit(event, instance) {
-        event.preventDefault();
         var email = event.target.email.value;
+        event.preventDefault();
 
         // Clear any previous error message
         instance.emailError.set('');

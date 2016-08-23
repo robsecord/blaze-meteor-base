@@ -1,21 +1,5 @@
-//// Meteor Components
-//import { Meteor } from 'meteor/meteor';
-//import { Template } from 'meteor/templating';
-
+// Login Component
 import '/imports/ui/components/login/client/login';
 
 // Template Component
 import './welcome.html';
-
-
-//Template.welcome.onCreated(function welcome_onCreated() {
-//});
-//
-//Template.welcome.onRendered(function welcome_onRendered() {
-//});
-//
-//Template.welcome.helpers({
-//});
-//
-//Template.welcome.events({
-//});

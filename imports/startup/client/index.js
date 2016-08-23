@@ -1,10 +1,15 @@
 // Common Meteor Imports for App
 import { Meteor } from 'meteor/meteor';
-import { Session } from 'meteor/session';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
+// Session Namespacing
+import '/imports/startup/client/session-namespace';
+
+// Auth-Session Namespace
+import { authSession } from '/imports/auth/client/auth-service';
+
 // Common App Display Pipes
-import '/imports/ui/pipes/client/common.js';
+import '/imports/ui/pipes/client/common';
 
 // App Routes
 import './routes';
@@ -28,8 +33,8 @@ import './cdn-assets';
 var resetSession = function startupResetSession(fromStartup) {
     var _set = fromStartup ? 'setDefault' : 'set';
 
-    Session[_set]('loggedIn', false);
-    Session[_set]('redirectAfterLogin', '');
+    authSession[_set]('loggedIn', false);
+    authSession[_set]('redirectAfterLogin', '');
 };
 
 /**
@@ -45,10 +50,10 @@ Meteor.startup(() => {
 //  let's redirect the user to the Public Welcome Page
 Tracker.autorun(() => {
     if (!Meteor.userId()) {
-        if (Session.get('loggedIn')) {
+        if (authSession.get('loggedIn')) {
             const route = FlowRouter.current();
             if (route.route.name !== 'app.home') {
-                Session.set('redirectAfterLogin', route.path);
+                authSession.set('redirectAfterLogin', route.path);
             }
             return FlowRouter.go(FlowRouter.path('app.welcome'));
         }

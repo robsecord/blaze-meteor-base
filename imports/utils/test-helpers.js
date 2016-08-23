@@ -1,8 +1,21 @@
-import { _ } from 'meteor/underscore';
+/* eslint-disable new-cap */
+
+// Meteor Components
 import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 import { Tracker } from 'meteor/tracker';
+import { _ } from 'meteor/underscore';
 
+// Session Namespacing
+import '/imports/startup/client/session-namespace';
+
+// Common App Display Pipes
+import '/imports/ui/pipes/client/common.js';
+
+/**
+ *
+ * @param callback
+ */
 const withDiv = function withDiv(callback) {
     const el = document.createElement('div');
     document.body.appendChild(el);
@@ -13,14 +26,22 @@ const withDiv = function withDiv(callback) {
     }
 };
 
+/**
+ *
+ * @param template
+ * @param data
+ * @param callback
+ */
 export const withRenderedTemplate = function withRenderedTemplate(template, data, callback) {
     withDiv((element) => {
         const ourTemplate = _.isString(template) ? Template[template] : template;
-        const view = Blaze.renderWithData(ourTemplate, data, element);
-        const instance = view._domrange.members[0].view.templateInstance();
+        let view = Blaze.renderWithData(ourTemplate, data, element);
+        view = view._domrange.members[0].view;
+        const instance = view.templateInstance();
         Tracker.flush();
-        callback(instance, element);
+        callback(view, instance, element);
     });
 };
 
+// Default Export for Module
 export default withRenderedTemplate;

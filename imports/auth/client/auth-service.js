@@ -1,5 +1,6 @@
 // Meteor Components
 import { Meteor } from 'meteor/meteor';
+import { Session } from 'meteor/session';
 
 // App Components
 import { denodeify } from '/imports/utils/denodeify';
@@ -9,6 +10,10 @@ const _loginWithPassword = denodeify(Meteor.loginWithPassword);
 const _logoutOtherClients = denodeify(Meteor.logoutOtherClients);
 const _logout = denodeify(Meteor.logout);
 const _forgotPassword = denodeify(Accounts.forgotPassword);
+
+// Namespaced Sessions for Requests Page
+//  defined globally to be accessible from all requests templates
+export const authSession = Session.getNamespace('App.AuthSession');
 
 /**
  * Authentication Service for the App
@@ -21,6 +26,9 @@ export class AuthService {
      *     singleton instance accessor as follows:
      *       var authService = AuthService.instance();
      *       authService.login(...)
+     *
+     * @private
+     * @constructor
      */
     constructor() {
         this._redirectTo = '';
@@ -48,7 +56,10 @@ export class AuthService {
      */
     login(email, password) {
         return _loginWithPassword(email, password)
-            .then(() => _logoutOtherClients());
+            .then(() => {
+                authSession.set('loggedIn', true);
+                return _logoutOtherClients();
+            });
     }
 
     /**
@@ -57,7 +68,10 @@ export class AuthService {
      * @return {Promise.<T>} - A promise for the status of the logout action
      */
     logout() {
-        return _logout();
+        return _logout()
+            .then(() => {
+                authSession.set('loggedIn', false);
+            });
     }
 
     /**
@@ -72,24 +86,27 @@ export class AuthService {
     }
 
     /**
+     * Check if a user is currently Logged In
      *
-     * @returns {boolean}
+     * @returns {boolean} - True if the user is Logged In; False otherwise
      */
     isLoggedIn() {
         return !!Meteor.userId();
     }
 
     /**
+     * Check for a Redirect URL after Login
      *
-     * @returns {string}
+     * @returns {string} - The Redirect URL
      */
     get redirectUrl() {
         return this._redirectTo;
     }
 
     /**
+     * Set a Redirect URL for after Login
      *
-     * @param {string} url
+     * @param {string} url - The URL to Redirect to after Login
      */
     set redirectUrl(url) {
         this._redirectTo = url;
